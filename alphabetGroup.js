@@ -8,7 +8,7 @@ function alphabetGroup(param) {
   else {
     for(var i = 0; i < param; i++) {
       var alphabetGroup1 = []
-      for(j = 0; j < param; j++) {
+      for(var j = 0; j < param; j++) {
         if(alphabet.length-1 === num) {
           alphabetGroup1.push(alphabet[num])
           num = 0

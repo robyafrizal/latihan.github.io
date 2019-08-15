@@ -11,7 +11,7 @@ yang ada di dalam `str` menjadi sebuah huruf yang sesuai dengan aturan:
 /* PSEUDOCODE
   START
   SET function numberLetter with parameter(str)
-  STORE 'output' with string value
+  STORE 'output' with empty string
   STORE i with 0
   FOR i LESS THEN str.length
     IF (str[i] === 1)
@@ -30,6 +30,19 @@ yang ada di dalam `str` menjadi sebuah huruf yang sesuai dengan aturan:
   RETURN output
   END
 
+*/
+
+/*
+ALGORITMA
+  Buat variable output dengan isi string kosong
+  Looping variable str secara urut depan sampai belakang
+  Buat conditional jika index str ke-i sama dengan '1' maka simpan output dengan 'i'
+  Jika index str ke-i sama dengan '4' maka simpan output dengan 'a'
+  Jika index str ke-i sama dengan '3' maka simpan output dengan 'e'
+  Jika index str ke-i sama dengan '7' maka simpan output dengan 'u'
+  Jika index str ke-i sama dengan '0' maka simpan output dengan 'o'
+  Jika selain itu maka simpan output dengan index ke-i
+  Kembalikan / tampilkan output
 */
 
 function numberLetters(str) {
