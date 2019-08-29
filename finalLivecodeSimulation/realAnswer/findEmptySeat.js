@@ -1,4 +1,4 @@
-/* 
+/*
 MENCARI POSISI TEMPAT DUDUK DI RUANG SEMINAR
 
 function findEmptySeat akan menerima array multidimensi yang menggambarkan sebuah ruangan seminar.
@@ -45,9 +45,40 @@ OUTPUT: simbol # ditempatkan pada posisi indeks (4,1)
 
 */
 
+// function findEmptySeat(arr) {
+//   var tengah = (arr[0].length - 1) / 2
+//   //console.log(tengah)
+
+//   for(var i = 0; i < arr.length; i++) {
+//     for(var j = arr[i].length -1; j >= 0; j--) {
+//       if(arr[i][j] === ' ' && j !== tengah) {
+//         arr[i][j] = '#'
+//         return arr
+//       }
+//     }
+//   }
+//   return 'Maaf tidak ada kursi kosong lagi'
+// }
+
 function findEmptySeat(room) {
-  // code here
+  seat = false
+  for(i = 0; i < room.length; i++) {
+    for(j = room.length - 1; j >= 0; j--) {
+      if(seat == false) {
+        if(room[i][j] == ' ' && j != (room[0].length - 1) / 2) {
+          room[i][j] = '#'
+          seat = true
+        }
+      }
+    }
+  }
+  if(!seat) {
+    return 'Maaf tidak ada kursi kosong tersedia'
+  }
+  return room
 }
+
+
 
 
 console.log(findEmptySeat([
@@ -70,7 +101,6 @@ console.log(findEmptySeat([
   ['*', '*', '*', ' ', '*', '*', '*'],
   ['*', '*', '*', ' ', '*', '*', '*'] ]
 */
-
 
 console.log(findEmptySeat([
   ['*','*', '*', '*', ' ', '*', '*', '*', '*'],

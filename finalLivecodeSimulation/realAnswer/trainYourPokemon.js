@@ -1,4 +1,4 @@
-/**
+/*
  * Train your pokemon!
  * 
  * Description:
@@ -53,9 +53,55 @@
  * 1. Dilarang menggunakan built in function apapun selain .push() dan .unshift()
  */
 
+// function train(pokemon, candy) {
+//   // code here
+//   var levelPokemonNow = pokemon.level
+//   var pokemonName = pokemon.name
+//   var pokemonLevelAfterEatCandy = levelPokemonNow + candy
+//   var evolvedNames = []
+
+//   if(pokemon.evolutionLine != undefined) {
+//     for(var i = 0; i < pokemon.evolutionLine.length; i++) {
+//       evolutionLineLevel = pokemon.evolutionLine[i].level
+//       if(pokemonLevelAfterEatCandy >= evolutionLineLevel) {
+//         evolvedNames.push(pokemon.evolutionLine[i].name)
+//       }
+//     }
+//   }
+//   var message = 'Congratulations, your ' + levelPokemonNow + ' grew to level ' + pokemonLevelAfterEatCandy + '!'
+
+//   if(evolvedNames.length > 0) {
+//     message = message + ' And it evolved into '
+//   }
+//   for(var i = 0; i < evolvedNames.length; i++) {
+//     message = message + evolvedNames[i] + ' '
+//   }
+
+//   return message
+// }
+
 function train(pokemon, candy) {
-  // code here
+  var nextLevel = pokemon.level + candy
+  if(!pokemon.evolutionLine) {
+    return 'Congratulations, your ' + pokemon.name + ' grew to LV. ' + nextLevel + '!'
+  }
+
+  var nextEvolution = []
+  for(var i = 0; i < pokemon.evolutionLine.length; i++) {
+    if(i === pokemon['evolutionLine'].length - 1) {
+      if(nextLevel >= pokemon.evolutionLine[i].level) {
+        nextEvolution.push(' dan ' + pokemon.evolutionLine[i].name)
+      }
+    }
+    else {
+      if(nextLevel >- pokemon.evolutionLine[i].level) {
+        nextEvolution.push(' ' + pokemon.evolutionLine[i].name)
+      }
+    }
+  }
+  return 'Congratulations, your ' + pokemon.name + ' grew to LV. ' + nextLevel + '! And it evolved into ' + nextEvolution
 }
+
 
 var charmander = {
   name: 'Charmander',

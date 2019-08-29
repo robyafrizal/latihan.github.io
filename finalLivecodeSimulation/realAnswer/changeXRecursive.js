@@ -1,5 +1,4 @@
-/**
- * ////////////////
+/*
  * changeXRecursive
  * ////////////////
  * Function ini harus dikerjakan dengan menggunakan rekursif.
@@ -29,9 +28,28 @@
  * 3. Wajib menggunakan rekursif
  */
 
-function changeXRecursive(data, jenis) {
-  // code here
-}
+ function changeXRecursive(data, jenis) {
+   var output = ''
+  if(data.length === 1) {
+    return data[0]
+  }
+  else {
+    if(data[0] === 0) {
+      output = 0
+    }
+    else if(data[0] % 2 === 0 && jenis === 'genap') {
+      output = 10 - Number(data[0])
+    }
+    else if (data[0] % 2 !== 0 && jenis === 'ganjil') {
+      output = 10 -Number(data[0])
+    }
+    else {
+      output = data[0]
+    }
+  }
+  return output + changeXRecursive(data.slice(1), jenis)
+ }
 
 console.log(changeXRecursive('012345678922468', 'ganjil')); // 092745638122468
 console.log(changeXRecursive('0123456789', 'genap')); // 0183654729
+console.log(changeXRecursive('8', 'genap')); // 0183654729

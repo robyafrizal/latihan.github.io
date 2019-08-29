@@ -23,12 +23,45 @@
 
 function diagonAlley(word) {
   // code here
+  if (word.length < 3) {
+    return 'Invalid input'
+  }
+
+  var output = []
+  
+  for (let i = 0; i < word.length; i++) {
+    output.push([])
+    for (let j = 0; j < word.length; j++) {
+        if (j == 0) {
+          output[i].push("|")
+        } else if (j == word.length-1) {
+          output[i].push("|")
+        } else {
+          output[i].push("-")
+        }
+        
+    }
+  }
+
+  // console.log(output)
+  for( var i = 0; i < word.length; i++){
+    // saat i = 0, ak mau posisi word[i] ada di output[i][output.length-i]
+    // console.log(output[i])
+    output[i][output.length-1-i] = word[i]
+    // console.log(i, output[i],"\n====")
+  }
+  return output
+
+
+
 }
+
+
 
 
 // TEST CASES
 
-diagonAlley('kuroko')
+console.log(diagonAlley('kuroko'))
 /*
   |----k
   |---u|
@@ -39,7 +72,7 @@ diagonAlley('kuroko')
 */
 console.log('')
 
-diagonAlley('non')
+console.log(diagonAlley('non'))
 /*
   |-n
   |o|
@@ -47,7 +80,7 @@ diagonAlley('non')
 */
 console.log('')
 
-diagonAlley('basuke')
+console.log(diagonAlley('basuke'))
 /*
   |----b
   |---a|
@@ -58,5 +91,5 @@ diagonAlley('basuke')
 */
 console.log('')
 
-diagonAlley('no')
+console.log(diagonAlley('no'))
 // Invalid input
